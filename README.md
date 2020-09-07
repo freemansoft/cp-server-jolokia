@@ -21,6 +21,9 @@ You configure the Telegraf _Jolokia2_ plugin to use this endpoint as input where
     * >cd jolokia
     * >build.sh
     * >docker-compose up
+
+### Docker Hub
+You may find a pre-built docker image on Dockerhub
 -----------------
 ## Sample _telegraf.conf_ file.
 Jolokia exposes about 3000 metrics. The sample _telegraf.conf_ file imports a reasonable portion of these.
@@ -128,8 +131,10 @@ See this page https://docs.confluent.io/current/quickstart/ce-quickstart.html Th
   * ```docker-compose -f docker-compose-monitory.yml down ```
 1. Bring down kafka
   * ```docker-compose -f docker-compose-kafka.yml down ```
-3. If you only control-c the open windows then you may need
+1. If you only control-c the open windows then you may need
   * ```docker container prune ```
+1. You can remove all the locally cached custom images with
+  * ```docker rmi -f $(docker images | grep freemansoft/cp-server| awk '{print $3}' )```
 
 -----------------
 ## References used creating ths project

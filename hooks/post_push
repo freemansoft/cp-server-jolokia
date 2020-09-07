@@ -3,11 +3,11 @@
 DOCKER_REPO=freemansoft/cp-server
 
 # I'm hoping there are no old images hanging around in this area - lets see
-echo "can see `docker images`"
+echo "can see `docker images | tail -n +1`"
 
 # tagged in the build - ignore the header line
-for aVersion in $(docker images $DOCKER_REPO | tail -n +2 | awk  '{print $2}') 
+for aVersion in $(docker images $DOCKER_REPO | tail -n +2 | awk  '{print $2}' | grep -v "none") 
 do
     echo "pushing $DOCKER_REPO:$aVersion"
-    docker push $DOCKER_REPO:$aVersion
+    #docker push $DOCKER_REPO:$aVersion
 done
