@@ -139,7 +139,12 @@ See this page https://docs.confluent.io/current/quickstart/ce-quickstart.html Th
 * Datagen data generator demo https://docs.confluent.io/current/quickstart/ce-quickstart.html
 
 -----------------
-### Grafana API
+## DockerHub
+The same script sits in two places to support DockerHub and human builds.
+* /build.sh - for humans
+* hooks/build - for DockerHub
+-----------------
+## Grafana API
 You should be abel to Create a grafana database confguration by sending a POST to http://localhost:3000/api/datasources
 ```
 {
