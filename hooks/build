@@ -1,6 +1,6 @@
 #!/bin/bash
-# A copy of this file is in the hooks folder for DockerHub bilds
-# A copy of this file is in the top level directory for humans
+# A copy of this file is in the hooks folder for DockerHub builds
+# A copy of this file is in the top-level directory for humans
 
 CONFLUENT_VERSION="5.5.1"
 JOLOKIA_VERSION="1.6.2"
