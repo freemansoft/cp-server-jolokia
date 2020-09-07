@@ -23,7 +23,7 @@ You configure the Telegraf _Jolokia2_ plugin to use this endpoint as input where
     * >docker-compose up
 
 ### Docker Hub
-You may find a pre-built docker image on Dockerhub
+You may find a pre-built docker image on Dockerhub.
 -----------------
 ## Sample _telegraf.conf_ file.
 Jolokia exposes about 3000 metrics. The sample _telegraf.conf_ file imports a reasonable portion of these.
@@ -148,6 +148,19 @@ See this page https://docs.confluent.io/current/quickstart/ce-quickstart.html Th
 The same script sits in two places to support DockerHub and human builds.
 * /build.sh - for humans
 * hooks/build - for DockerHub
+
+freemansoft dockerhub builds are triggered whenever a semver tag is created with the format _x.y.z_ 
+|Source Type | Source        | Docker Tag  | Dockerfile location | Build Context |
+|------------|---------------|-------------|---------------------|---------------|
+| tag        | /^\[0-9.\]+$/ | {sourceref} | Dockerfile          | /             |
+
+Builds are automtically run when tags are created or moved. Tags are created/moved and pushed with the following commands
+```
+git tag -f -a <tagname>
+git push -f --tags
+```
+Version numbers **should match the confluent version numbers** to make everyone's life simple
+
 -----------------
 ## Grafana API
 You should be abel to Create a grafana database confguration by sending a POST to http://localhost:3000/api/datasources
