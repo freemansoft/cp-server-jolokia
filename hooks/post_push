@@ -1,16 +1,13 @@
 #!/bin/bash
-# This feels like a hack.  There should be a way of making the push automatic for all the tags
-#CONFLUENT_VERSION="5.5.1"
-# originally lifted example
-#docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
-#docker push $DOCKER_REPO:$CONFLUENT_VERSION
 
-# tagged in the build
-allVersions=`docker images $DOCKER_REPO | grep $DOCKER_REPO | awk  '{print $2}'`
-echo "all versions - $allVersions"
+DOCKER_REPO=freemansoft/cp-server
 
-for aVersion in $allVersions do
-    echo "pushing $aVersion"
+# I'm hoping there are no old images hanging around in this area - lets see
+echo "can see `docker images`"
+
+# tagged in the build - ignore the header line
+for aVersion in $(docker images $DOCKER_REPO | tail -n +2 | awk  '{print $2}') 
+do
+    echo "pushing $DOCKER_REPO:$aVersion"
     docker push $DOCKER_REPO:$aVersion
 done
-
