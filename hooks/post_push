@@ -1,0 +1,5 @@
+CONFLUENT_VERSION="5.5.1"
+
+# tagged in the build
+#docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
+docker push $DOCKER_REPO:$CONFLUENT_VERSION
