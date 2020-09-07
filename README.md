@@ -5,7 +5,7 @@ Kakfa Brokers expose topic statistics two ways
 * As messages in  _confluent-metrics_ topic
 
 -----------------
-## confluent-cp 2/ Jolokia Docker Image
+## confluent-cp + Jolokia Docker Image
 This project builds a Docker image on top of the _confluentinc/cp-server_ docker iamage. 
 The Image exposes the Jolokia HTTP endpoint on port  ``` 8778 ```.
 The Image will receive two tags, the cp-server version and the cp-serverversion appeneded with the build timestamp.

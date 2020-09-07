@@ -1,7 +1,16 @@
 #!/bin/bash
 # This feels like a hack.  There should be a way of making the push automatic for all the tags
-CONFLUENT_VERSION="5.5.1"
+#CONFLUENT_VERSION="5.5.1"
+# originally lifted example
+#docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
+#docker push $DOCKER_REPO:$CONFLUENT_VERSION
 
 # tagged in the build
-#docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
-docker push $DOCKER_REPO:$CONFLUENT_VERSION
+allVersions=`docker images $DOCKER_REPO | grep $DOCKER_REPO | awk  '{print $2}'`
+echo "all versions - $allVersions"
+
+for aVersion in $allVersions do
+    echo "pushing $aVersion"
+    docker push $DOCKER_REPO:$aVersion
+done
+
