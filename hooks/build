@@ -10,6 +10,7 @@ echo "Basing this on kafka version: $CONFLUENT_VERSION and Jolokia version: $JOL
 docker build \
     --tag freemansoft/cp-server:$CONFLUENT_VERSION \
     --tag freemansoft/cp-server:$CONFLUENT_VERSION-$TIMESTAMP \
+    --tag freemansoft/cp-server:latest \
     --build-arg CONFLUENT_VERSION=$CONFLUENT_VERSION \
     --build-arg JOLOKIA_VERSION=$JOLOKIA_VERSION \
     .
