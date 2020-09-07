@@ -150,6 +150,7 @@ The same script sits in two places to support DockerHub and human builds.
 * hooks/build - for DockerHub
 
 freemansoft dockerhub builds are triggered whenever a semver tag is created with the format _x.y.z_ 
+
 |Source Type | Source        | Docker Tag  | Dockerfile location | Build Context |
 |------------|---------------|-------------|---------------------|---------------|
 | tag        | /^\[0-9.\]+$/ | {sourceref} | Dockerfile          | /             |
