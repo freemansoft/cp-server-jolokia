@@ -15,19 +15,20 @@ You must run the _freemansoft/cp-server_ with these parameters to enable the Jol
 
 You configure the Telegraf _Jolokia2_ plugin to use this endpoint as input where it can then be sent to any Telegraf output sink. See the sample telegraf.conf file in this GitHub repo associated with this Docker Image
 
-### Building this Docker Image
+### Building the cp-server w/Jolokia Docker Image
 * Build a docker container that includes the Jolokia agent that exposes JMX over HTTP on port.
-* cd into that directory
-    * >cd jolokia
-    * >build.sh
-    * >docker-compose up
-
+```
+    cd cp-server-jolokia
+    build.sh
+    docker-compose -f docker-compose-kafka.yml up
+```
 ### Docker Hub
 You may find a pre-built docker image on Dockerhub.
+
 -----------------
 ## Sample _telegraf.conf_ file.
-Jolokia exposes about 3000 metrics. The sample _telegraf.conf_ file imports a reasonable portion of these.
-The file is configured as:
+Jolokia exposes about 3000 metrics. The sample _telegraf.conf_ file imports a significant subset of these.
+telegraf.conf is configured baed on some 3-node work I did even though this repo only has a single broker:
 * Poll the kafka broker nodes every 20 seconds instead of 10 seconds. This cuts the amount of data collected in half. The default seems excessive for metrics.
 * Increase tinput buffer sizes 4x from the default.  The defaults are overrun by 7000 metrics when connected to three servers at the default buffer size.  This implies 17000 metrics.  The buffer sizes are now 4000/40000 which shold be twice what we need for a 3 node.  _I just guessed at all that_
 * Push the data to a Containerized InfluxDB database
@@ -81,6 +82,9 @@ You can view the datasource configuration via the _Grafana REST API_
 1. Click on _Run Query_
 
 Example: __FROM__ _default_ _mem_ __WHERE__ __SELECT__ field(active) mean() __GROUP BY__ time($_interval...) _FORMAT AS_ Time series
+
+### Sample Grafana Chart
+![Broker Heap Usage](docs/Grafana-broker-heap-usage.png)
 
 -----------------
 ## Generate Test data in Kafka using Datagen
