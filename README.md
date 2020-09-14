@@ -148,7 +148,7 @@ See this page https://docs.confluent.io/current/quickstart/ce-quickstart.html Th
 * Datagen data generator demo https://docs.confluent.io/current/quickstart/ce-quickstart.html
 
 -----------------
-## DockerHub
+## DockerHub Notes
 The same script sits in two places to support DockerHub and human builds.
 * /build.sh - for humans
 * hooks/build - for DockerHub
@@ -165,6 +165,13 @@ git tag -f -a <tagname>
 git push -f --tags
 ```
 Version numbers **should match the confluent version numbers** to make everyone's life simple
+
+-----------------
+## Videos
+1. Intro https://youtu.be/w_FQD_pTybQ
+1. Creating a cp-server Docker image that includes a Jolokia Java Agent https://youtu.be/SHx2PyUl5xE
+1.  Configuring Telegraf with the telegraf.conf file https://youtu.be/2eX8ZAEM3sA
+1. Displaying captured metrics in Grafana https://youtu.be/WpjCHCjGMhM
 
 -----------------
 ## Grafana API
