@@ -13,9 +13,9 @@ Scripts in this folder let you run the Kafka quick start.
     *  mostly likely using the docker-compose yml in the root folder of this project
 
 ## Demo Docker Cluster Topology
-The deployed cluster looks like
+We will be using the REST APIs highlighted in orange:
 
-![Demo Cluster](../docs/Kafka-Jolokia-Topology.png)
+![Demo Cluster](../docs/quickstart-topology.png)
 
 ## Generating Data and Dashboards
 The following steps use the REST APIs provided by Apache Kafka, the Kafka Connector and Grafana
