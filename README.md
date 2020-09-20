@@ -53,6 +53,11 @@ This project builds on a Docker Image built on top of the standard _confluentinc
     * http://localhost:3000/login 
 
 -----------------
+# Testing Grafana
+Note: These steps are automated in the _quickstart_ subfolder
+
+-----------------
+
 ## Configure Grafana to use InfluxDB as a source
 1. Connect to the _Grafana Dashboard_
     * http://localhost:3000/login
