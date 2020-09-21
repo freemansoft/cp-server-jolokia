@@ -1,7 +1,10 @@
-## quickstart
+This directory sets up the topic and test data side of the 
+[Confluent Docker quickstart](https://docs.confluent.io/current/quickstart/ce-docker-quickstart.html#ce-docker-quickstart)
+in a series of scripts.  It then adds on metrics generation and capture , _Jolokia/Telegraf_ and a monitoring dashboard in _Grafana_.  This does not include the _Kafak Streams_ or _ksqlDB_ portion of the quick start.
+
 Scripts in this folder let you run the Kafka quick start.
-* Create users and pagviews topics
-* Create the quickstart data generator as a kafka connector.
+* Create Kafka topics called _users_ and _pagviews_
+* Create data generator using the Kafka Connect data generator/connector.
 * Use the quickstart user/pageview data generator to create traffic Kafka traffic
 * Create a Grafana database source that points at the metrics in influxdb
 * Create a Grafana dashboard that displayes a couple metrics.
