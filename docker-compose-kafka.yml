@@ -1,10 +1,10 @@
 # from https://docs.confluent.io/current/quickstart/ce-docker-quickstart.html
-# contents from https://github.com/confluentinc/cp-all-in-one/ formerly https://github.com/confluentinc/examples/tree/5.5.1-post/cp-all-in-one
+# contents from https://github.com/confluentinc/cp-all-in-one/ formerly https://github.com/confluentinc/examples/tree/5.5.2-post/cp-all-in-one
 ---
 version: '3.3'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.5.1
+    image: confluentinc/cp-zookeeper:5.5.2
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -20,8 +20,8 @@ services:
 
   broker:
     # community version is confluentinc/cp-kafka
-    # changed from cp-enterprise-kafka to cp-server some time between 5.3.1 and 5.5.1
-    image: freemansoft/cp-server:5.5.1
+    # changed from cp-enterprise-kafka to cp-server some time between 5.3.1 and 5.5.2
+    image: freemansoft/cp-server:5.5.2
     hostname: broker
     container_name: broker
     depends_on:
@@ -56,7 +56,7 @@ services:
       - streaming
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:5.5.1
+    image: confluentinc/cp-schema-registry:5.5.2
     hostname: schema-registry
     container_name: schema-registry
     depends_on:
@@ -101,7 +101,7 @@ services:
       CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_ZOOKEEPER_CONNECT: 'zookeeper:2181'
       # CLASSPATH required due to CC-2422
-      CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-5.5.1.jar
+      CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-5.5.2.jar
       CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
@@ -111,7 +111,7 @@ services:
 
   control-center:
     # deprecated confluentinc/cp-control-center 
-    image: confluentinc/cp-enterprise-control-center:5.5.1
+    image: confluentinc/cp-enterprise-control-center:5.5.2
     hostname: control-center
     container_name: control-center
     depends_on:
@@ -138,8 +138,8 @@ services:
       - streaming
 
   ksqldb-server:
-    # changed from cp-ksql-servers to cp-ksqldb-servers between 5.3.1 and 5.5.1
-    image: confluentinc/cp-ksqldb-server:5.5.1
+    # changed from cp-ksql-servers to cp-ksqldb-servers between 5.3.1 and 5.5.2
+    image: confluentinc/cp-ksqldb-server:5.5.2
     hostname: ksqldb-server
     container_name: ksqldb-server
     depends_on:
@@ -162,8 +162,8 @@ services:
       - streaming
 
   ksqldb-cli:
-    # changed from cp-ksql-cli between 5.3.1 and 5.5.1
-    image: confluentinc/cp-ksqldb-cli:5.5.1
+    # changed from cp-ksql-cli between 5.3.1 and 5.5.2
+    image: confluentinc/cp-ksqldb-cli:5.5.2
     container_name: ksqldb-cli
     depends_on:
       - broker
@@ -175,8 +175,8 @@ services:
       - streaming
 
   ksql-datagen:
-    # Changed from ksql-examples to ksqldb-examples between 5.3.1 and 5.5.1
-    image: confluentinc/ksqldb-examples:5.5.1
+    # Changed from ksql-examples to ksqldb-examples between 5.3.1 and 5.5.2
+    image: confluentinc/ksqldb-examples:5.5.2
     hostname: ksql-datagen
     container_name: ksql-datagen
     depends_on:
@@ -201,7 +201,7 @@ services:
       - streaming
 
   rest-proxy:
-    image: confluentinc/cp-kafka-rest:5.5.1
+    image: confluentinc/cp-kafka-rest:5.5.2
     depends_on:
       - zookeeper
       - broker
