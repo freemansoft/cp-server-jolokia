@@ -5,7 +5,7 @@ version: '3.3'
 services:
   # section from https://github.com/nicolargo/docker-influxdb-grafana/blob/master/docker-compose.yml
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.8-alpine
     container_name: influxdb
     ports:
       - 8086:8086
@@ -30,7 +30,7 @@ services:
 
   # default admin/admin
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:7.5.4
     container_name: grafana
     ports:
       - 3000:3000
