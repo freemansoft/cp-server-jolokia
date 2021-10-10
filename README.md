@@ -63,6 +63,7 @@ Note: These steps are automated in the _quickstart_ subfolder
     * http://localhost:3000/login
     * admin/admin
     * skip the offered password change
+1. Navigate to _Configuration --> Data Sources_
 1. Click on _add data source_
 1. Click on influxDB to start the connection creation
 1. Create a data source that points at _InfluxDB_
